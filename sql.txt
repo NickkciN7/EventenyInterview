@@ -7,3 +7,6 @@ create table events(
    description VARCHAR(300) NOT NULL,
    PRIMARY KEY ( event_id )
 );
+
+
+INSERT INTO `events`(`name`, `location`, `start_time`, `end_time`, `description`) VALUES ('dude', '123','2022-07-14 18:01', '2023-07-14 18:01', 'a')

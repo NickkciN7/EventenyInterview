@@ -34,9 +34,9 @@ function zip() {
     }
 }
 
+//used upon clicking Add button on AddEvent page
 function add() {
-
-
+    //array of strings of which input fields have no input
     empty = [];
     eventName = document.getElementById('name').value;
     if (isEmpty(eventName)) { empty.push('Name'); }
@@ -66,13 +66,25 @@ function add() {
         //apparently need a FormData variable to be able to use $_POST[] according to stackoverflow posts
         const eventInfo = new FormData();
         eventInfo.set('name', eventName);
+        eventInfo.set('address', address);
+        eventInfo.set('city', city);
+        eventInfo.set('state', state);
+        eventInfo.set('zipCode', zipCode);
+        eventInfo.set('start', start);
+        eventInfo.set('end', end);
+        eventInfo.set('description', description);
 
         fetch('add.php', {
             method: 'POST',
             body: eventInfo,
         }).then(response => response.json()).then(data => {
-            console.log(data);
+            if (data == "Success") {
+                alert("Successfully added event.");
+            } else {
+                alert("Failure to add event.")
+            }
         });
+
     } else {
         //make comma separated string from empty array and make alert notifying user what needs input
 
