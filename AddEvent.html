@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Event</title>
+    <link rel="stylesheet" href="static/style.css" />
+</head>
+
+<body>
+    <h1>Add Events</h1>
+    <div>
+        Name: <input type="text" name="fname" size="30"><br><br>
+
+        Address: <input type="text" name="fname" size="30"><br>
+        City: <input type="text" name="fname" size="30"><br>
+        State: <select id="stateselect">
+            <option>--Select A State--</option>
+        </select><br>
+        Zip Code: <input onchange="zip()" type="text" name="fname" size="10"><span style="color: red;"
+            id="zip"></span><br><br>
+
+        Start Time: <input type="datetime-local"><br>
+        End Time: <input type="datetime-local"><br><br>
+
+        Description: <br><textarea id="description" rows="4" cols="30"></textarea>
+        <br><br>
+        <button onclick="location.href = 'AddEvent.html';">Add</button>
+    </div>
+
+
+    <script type="text/javascript" src="static/AddEvent.js"></script>
+</body>
+
+
+</html>
