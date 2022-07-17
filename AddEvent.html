@@ -9,22 +9,22 @@
 <body>
     <h1>Add Events</h1>
     <div>
-        Name: <input type="text" name="fname" size="30"><br><br>
+        Name: <input type="text" id="name" size="30"><br><br>
 
-        Address: <input type="text" name="fname" size="30"><br>
-        City: <input type="text" name="fname" size="30"><br>
-        State: <select id="stateselect">
+        Address: <input type="text" id="address" size="30"><br>
+        City: <input type="text" id="city" size="30"><br>
+        State: <select id="stateSelect">
             <option>--Select A State--</option>
         </select><br>
-        Zip Code: <input onchange="zip()" type="text" name="fname" size="10"><span style="color: red;"
-            id="zip"></span><br><br>
+        Zip Code: <input oninput="zip()" type="text" id="zipInput" size="10"><span style="color: red;"
+            id="zipSpan"></span><br><br>
 
-        Start Time: <input type="datetime-local"><br>
-        End Time: <input type="datetime-local"><br><br>
+        Start Time: <input type="datetime-local" id="start"><br>
+        End Time: <input type="datetime-local" id="end"><br><br>
 
         Description: <br><textarea id="description" rows="4" cols="30"></textarea>
         <br><br>
-        <button onclick="location.href = 'AddEvent.html';">Add</button>
+        <button onclick="add();">Add</button>
     </div>
 
 
