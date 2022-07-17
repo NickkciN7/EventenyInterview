@@ -17,7 +17,12 @@
 
     $insertEvent = mysqli_query($con, "INSERT INTO `events`(`name`, `location`, `start_time`, `end_time`, `description`) VALUES('$name', '$location', '$start', '$end', '$description')");
     if($insertEvent){
-        echo json_encode("Success");
+        $last_id = $con->insert_id;
+        if(move_uploaded_file($_FILES["pic"]["tmp_name"], "pictures/".$last_id.".png")){
+            echo json_encode("Success");
+        } else {
+            echo json_encode("Failure");
+        }
     } else {
         echo json_encode($con -> error);
     }

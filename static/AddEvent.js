@@ -66,6 +66,7 @@ function add() {
         //apparently need a FormData variable to be able to use $_POST[] according to stackoverflow posts
         const eventInfo = new FormData();
         eventInfo.set('name', eventName);
+        eventInfo.set('pic', pic);
         eventInfo.set('address', address);
         eventInfo.set('city', city);
         eventInfo.set('state', state);
@@ -74,14 +75,19 @@ function add() {
         eventInfo.set('end', end);
         eventInfo.set('description', description);
 
+        var input = document.querySelector('input[type="file"]');
+        eventInfo.append('pic', input.files[0])
+
         fetch('add.php', {
             method: 'POST',
             body: eventInfo,
+            'Content-Type': 'multipart/form-data'
         }).then(response => response.json()).then(data => {
             if (data == "Success") {
                 alert("Successfully added event.");
             } else {
-                alert("Failure to add event.")
+                // alert("Failure to add event.")
+                alert(data);
             }
         });
 
