@@ -2,3 +2,58 @@ body {
     text-align: center;
     background-color: #d4ebf2;
 }
+
+.main {
+    background-color: #DBDCDE;
+    width: 40%;
+    margin: auto;
+    border-radius: 25px;
+    padding: 5px;
+    /* overflow: hidden; */
+    box-shadow: 0 0 10px 5px black;
+}
+
+/* so that when the screen gets small, the content of the div do not get all disorganized looking */
+@media only screen and (max-width: 1250px) {
+    .main {
+        width: fit-content;
+    }
+}
+
+.grid {
+    /* width: fit-content; */
+    width: 700px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: [c] 200px [c] auto [c];
+    grid-template-rows: [r] 150px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] auto [r];
+}
+
+.heading {
+    grid-column: c 1 / span 2;
+    grid-row: r 1;
+    /* place-self: center stretch; */
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.centervert {
+    display: flex;
+    align-items: center;
+}
+
+
+.name {
+    grid-column: c 1;
+    grid-row: r 2;
+    display: flex;
+    justify-content: center;
+}
+
+.nameinp {
+    grid-column: c 2;
+    grid-row: r 2;
+}
