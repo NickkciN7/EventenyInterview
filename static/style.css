@@ -5,55 +5,52 @@ body {
 
 .main {
     background-color: #DBDCDE;
-    width: 40%;
+    width: 600px;
     margin: auto;
     border-radius: 25px;
-    padding: 5px;
+    padding: 10px;
     /* overflow: hidden; */
     box-shadow: 0 0 10px 5px black;
 }
 
 /* so that when the screen gets small, the content of the div do not get all disorganized looking */
-@media only screen and (max-width: 1250px) {
+/* @media only screen and (max-width: 1320px) {
     .main {
         width: fit-content;
     }
+} */
+
+.tdleft {
+    width: 150px;
+    /* text-align: center */
 }
 
-.grid {
-    /* width: fit-content; */
-    width: 700px;
-    margin: auto;
+.tdright {
+    width: 300px;
+    text-align: left;
+    /* column-span: "2"; */
+}
+
+.zip {
     display: grid;
-    grid-template-columns: [c] 200px [c] auto [c];
-    grid-template-rows: [r] 150px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] 50px [r] auto [r];
+    grid-template-columns: auto auto;
 }
 
-.heading {
-    grid-column: c 1 / span 2;
-    grid-row: r 1;
-    /* place-self: center stretch; */
+.zipinp {
+    grid-column: 1;
+    justify-self: left;
 }
 
-.center {
-    display: flex;
+.ziperror {
+    grid-column: 2;
     justify-content: center;
 }
 
-.centervert {
-    display: flex;
-    align-items: center;
+span {
+    color: red;
+    font-size: x-small;
 }
 
-
-.name {
-    grid-column: c 1;
-    grid-row: r 2;
-    display: flex;
-    justify-content: center;
-}
-
-.nameinp {
-    grid-column: c 2;
-    grid-row: r 2;
+.rowspace {
+    height: 25px;
 }
