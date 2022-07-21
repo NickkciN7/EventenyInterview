@@ -1,3 +1,5 @@
+EVENT_ID = 24;
+
 window.onload = (event) => {
 
     // So I didn't have to manually make an option for every state in the select tag. copied this array from https://usastatescode.com/state-array-json
@@ -19,7 +21,7 @@ window.onload = (event) => {
     }
 
     fetch('getInfo.php?' + new URLSearchParams({
-        eventID: 25
+        eventID: EVENT_ID
     })).then(response => response.json()).then(data => {
         console.log(data);
         fillInputs(data);
@@ -72,14 +74,14 @@ function zip() {
 }
 
 
-ADD_EVENT = 1;
+UPDATE_EVENT = 1;
 RETRY = 0;
 //Set to ADD_EVENT if successfully added event
 //Set to RETRY if user did not input all data or the insert query was unsuccessful
 OK_TYPE = 0;
 
 //used upon clicking Add button on AddEvent page
-function add() {
+function update() {
     //array of strings of which input fields have no input
 
 
@@ -88,7 +90,7 @@ function add() {
     if (isEmpty(eventName)) { empty.push('Name'); }
 
     picName = document.getElementById('pic').value;
-    if (isEmpty(picName)) { empty.push('Picture'); }
+    // if (isEmpty(picName)) { empty.push('Picture'); }
 
     address = document.getElementById('address').value;
     if (isEmpty(address)) { empty.push('Address'); }
@@ -114,13 +116,13 @@ function add() {
     modalText = document.getElementById("modalText");
     // if (empty.length = 0) {}
     if (empty.length == 0) {
-        console.log("empty");
+        // console.log("empty");
         //nothing is empty so make a Post request
 
         //apparently need a FormData variable to be able to use $_POST[] according to stackoverflow posts
+
         const eventInfo = new FormData();
         eventInfo.set('name', eventName);
-        eventInfo.set('pic', pic);
         eventInfo.set('address', address);
         eventInfo.set('city', city);
         eventInfo.set('state', state);
@@ -128,11 +130,16 @@ function add() {
         eventInfo.set('start', start);
         eventInfo.set('end', end);
         eventInfo.set('description', description);
+        eventInfo.set('eventID', EVENT_ID);
 
-        var input = document.querySelector('input[type="file"]');
-        eventInfo.append('pic', input.files[0])
+        if (isEmpty(picName)) {
+            eventInfo.set('noPic', "none");
+        } else {
+            var input = document.querySelector('input[type="file"]');
+            eventInfo.append('pic', input.files[0])
+        }
 
-        fetch('add.php', {
+        fetch('edit.php', {
             method: 'POST',
             body: eventInfo,
             'Content-Type': 'multipart/form-data'
@@ -140,8 +147,8 @@ function add() {
             if (data == "Success") {
                 console.log("good");
                 // alert("Successfully added event.");
-                modalText.innerHTML = "Successfully added event. Click Ok to see your events.";
-                OK_TYPE = ADD_EVENT;
+                modalText.innerHTML = "Successfully updated event. Click Ok to see your events.";
+                OK_TYPE = UPDATE_EVENT;
             } else {
                 // alert("Failure to add event.")
                 // alert(data);
@@ -172,7 +179,7 @@ function isEmpty(str) {
 }
 
 function ok() {
-    if (OK_TYPE === ADD_EVENT) {
+    if (OK_TYPE === UPDATE_EVENT) {
         window.location.href = "MyEvents.php";
     } else {
         modal = document.getElementById("modal");

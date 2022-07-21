@@ -83,7 +83,7 @@ function add() {
         //apparently need a FormData variable to be able to use $_POST[] according to stackoverflow posts
         const eventInfo = new FormData();
         eventInfo.set('name', eventName);
-        eventInfo.set('pic', pic);
+        // eventInfo.set('pic', pic);
         eventInfo.set('address', address);
         eventInfo.set('city', city);
         eventInfo.set('state', state);

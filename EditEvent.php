@@ -91,7 +91,7 @@
         </table>
         <!-- Description: <br><textarea id="description" rows="4" cols="30"></textarea> -->
         <br><br>
-        <button onclick="add();">Add</button>
+        <button onclick="update();">Update</button>
     </div>
     <!-- <div style="width: 100px; height: 100px; background-color: green;"></div> -->
 

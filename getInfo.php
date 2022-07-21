@@ -42,8 +42,4 @@
     $json->description = $description;
 
     echo json_encode($json);
-
-
-
-    
 ?>
