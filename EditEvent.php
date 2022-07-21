@@ -2,7 +2,8 @@
 <html>
 
 <head>
-    <title>Add Event</title>
+    <title>Edit Event</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="static/style.css" />
 </head>
 
@@ -14,7 +15,7 @@
         </div>
     </div>
     <div class="main">
-        <h1>Add Event</h1>
+        <h1>Edit Event</h1>
         <table>
             <tr>
                 <td class="tdleft">Name:</td>
@@ -25,7 +26,17 @@
 
             <tr>
                 <td class="tdleft">Picture:</td>
-                <td class="tdright"><input type="file" id="pic"></td>
+                <!-- <td class="tdright"><input type="file" id="pic" style="width:300px"><span class="info" onclick="picInfo()">&#9432;</span></td> -->
+                <td>
+                    <div class="pictureEdit">
+                        <div class="picInp">
+                            <input type="file" id="pic" >
+                        </div>
+                        <div class="picError">
+                            <span class="info" onclick="picInfo()">&#9432;</span>
+                        </div>
+                    </div>
+                </td>
             </tr>
 
             <tr class="rowspace"></tr>
@@ -48,7 +59,8 @@
             </tr>
             <tr>
                 <td class="tdleft">Zip Code:</td>
-                <td style="width: 300px;">
+                <!-- <td style="width: 300px;"> -->
+                <td>
                     <div class="zip">
                         <div class="zipInp">
                             <input oninput="zip()" type="text" id="zipInput" size="10">
@@ -84,7 +96,7 @@
     <!-- <div style="width: 100px; height: 100px; background-color: green;"></div> -->
 
 
-    <script type="text/javascript" src="static/AddEvent.js"></script>
+    <script type="text/javascript" src="static/EditEvent.js"></script>
 </body>
 
 

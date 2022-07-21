@@ -18,7 +18,9 @@
 
 <body>
     <h1>My Events</h1>
-    <button onclick="location.href = 'AddEvent.html';">Add Event</button>
+    <!-- <button onclick="location.href = 'AddEvent.html';">Add Event</button> -->
+    <button onclick="AddEvent()">Add Event</button>
+    <!-- <script type="text/javascript" src="static/AddEvent.js"></script> -->
 </body>
 
 
