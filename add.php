@@ -13,7 +13,11 @@
 
     
 
-    // echo json_encode($location);
+    //escape characters to allow proper sql query
+    //for some reason cant put right expression directly in sql query
+    $name = mysqli_real_escape_string($con, $name);
+    $location = mysqli_real_escape_string($con, $location);
+    $description = mysqli_real_escape_string($con, $description);
 
     $insertEvent = mysqli_query($con, "INSERT INTO `events`(`name`, `location`, `start_time`, `end_time`, `description`) VALUES('$name', '$location', '$start', '$end', '$description')");
     if($insertEvent){

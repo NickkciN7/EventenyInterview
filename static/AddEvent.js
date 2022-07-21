@@ -34,12 +34,24 @@ function zip() {
     }
 }
 
+
+ADD_EVENT = 1;
+RETRY = 0;
+//Set to ADD_EVENT if successfully added event
+//Set to RETRY if user did not input all data or the insert query was unsuccessful
+OK_TYPE = 0;
+
 //used upon clicking Add button on AddEvent page
 function add() {
     //array of strings of which input fields have no input
+
+
     empty = [];
     eventName = document.getElementById('name').value;
     if (isEmpty(eventName)) { empty.push('Name'); }
+
+    picName = document.getElementById('pic').value;
+    if (isEmpty(picName)) { empty.push('Picture'); }
 
     address = document.getElementById('address').value;
     if (isEmpty(address)) { empty.push('Address'); }
@@ -60,7 +72,12 @@ function add() {
 
     // console.log(empty);
 
+    modal = document.getElementById("modal");
+    modal.style.display = "block";
+    modalText = document.getElementById("modalText");
+    // if (empty.length = 0) {}
     if (empty.length == 0) {
+        console.log("empty");
         //nothing is empty so make a Post request
 
         //apparently need a FormData variable to be able to use $_POST[] according to stackoverflow posts
@@ -84,10 +101,16 @@ function add() {
             'Content-Type': 'multipart/form-data'
         }).then(response => response.json()).then(data => {
             if (data == "Success") {
-                alert("Successfully added event.");
+                console.log("good");
+                // alert("Successfully added event.");
+                modalText.innerHTML = "Successfully added event. Click Ok to see your events.";
+                OK_TYPE = ADD_EVENT;
             } else {
                 // alert("Failure to add event.")
-                alert(data);
+                // alert(data);
+                console.log("bad");
+                modalText.innerHTML = data;
+                OK_TYPE = RETRY;
             }
         });
 
@@ -101,15 +124,21 @@ function add() {
         //get rid of last comma and space
         emptyString = emptyString.slice(0, -2);
         // console.log(emptyString);
-        alert("Please provide input for the following: \n" + emptyString);
+        // alert("Please provide input for the following: \n" + emptyString);
+        modalText.innerHTML = "Please provide input for the following:<br>" + emptyString;
+        OK_TYPE = RETRY;
     }
-
-
-
-
 }
-
 //checks if string is null or has length of 0.
 function isEmpty(str) {
     return (!str || str.length === 0);
+}
+
+function ok() {
+    if (OK_TYPE === ADD_EVENT) {
+        window.location.href = "MyEvents.php";
+    } else {
+        modal = document.getElementById("modal");
+        modal.style.display = "none";
+    }
 }

@@ -7,7 +7,12 @@
 </head>
 
 <body>
-
+    <div id="modal" class="modal">
+        <div class="modalMessage">
+            <p id="modalText"></p>
+            <button onclick="ok()">Ok</button>
+        </div>
+    </div>
     <div class="main">
         <h1>Add Events</h1>
         <table>
@@ -67,11 +72,16 @@
             </tr>
 
             <tr class="rowspace"></tr>
+            <tr>
+                <td class="tdleft">Description:</td>
+                <td class="tdright"><textarea id="description" rows="4" cols="25"></textarea></td>
+            </tr>
         </table>
-        Description: <br><textarea id="description" rows="4" cols="30"></textarea>
+        <!-- Description: <br><textarea id="description" rows="4" cols="30"></textarea> -->
         <br><br>
         <button onclick="add();">Add</button>
     </div>
+    <!-- <div style="width: 100px; height: 100px; background-color: green;"></div> -->
 
 
     <script type="text/javascript" src="static/AddEvent.js"></script>
