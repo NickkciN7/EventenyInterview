@@ -92,6 +92,8 @@
         </table>
         <br><br>
         <button onclick="update();">Update</button>
+        <br><br>
+        <button onclick="remove();">Delete</button>
     </div>
 
     <script type="text/javascript" src="static/EditEvent.js"></script>

@@ -187,6 +187,11 @@ function ok() {
         modal.style.display = "none";
     }
 }
+//delete from database
+function remove() {
+    // make modal say something like "are you sure?" then finally delete if they click yes
+}
+
 
 function picInfo() {
     alert('Leaving Picture as "No file chosen" will keep the picture currently associated with this event.')
