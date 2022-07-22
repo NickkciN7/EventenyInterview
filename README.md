@@ -1,7 +1,7 @@
 # Project for the Eventeny Interview.
-
-
-
+  
+  
+  
 ## Landing page
 ### landing.html
 ![alt text](https://github.com/NickkcIn7/EventenyInterview/blob/main/ProjectPics/Landing.png?raw=true)
