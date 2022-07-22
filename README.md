@@ -8,19 +8,19 @@
 <br>
 <br>
 
-## MyEvents page
+## My Events page
 ### MyEvents.php
 ![alt text](https://github.com/NickkcIn7/EventenyInterview/blob/main/ProjectPics/MyEvents.png?raw=true)
 <br>
 <br>
 
-## AddEvent page
+## Add Event page
 ### AddEvent.html
 ![alt text](https://github.com/NickkcIn7/EventenyInterview/blob/main/ProjectPics/AddEvent.png?raw=true)
 <br>
 <br>
 
-## EditEvent page
+## Edit Event page
 ### EditEvent.php
 ![alt text](https://github.com/NickkcIn7/EventenyInterview/blob/main/ProjectPics/EditEvent.png?raw=true)
 #### Modal example on same page
