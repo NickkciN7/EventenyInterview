@@ -14,7 +14,11 @@
     <div id="modal" class="modal">
         <div class="modalMessage">
             <p id="modalText"></p>
-            <button onclick="ok()">Ok</button>
+            <button id="ok" onclick="ok()">Ok</button>
+            <div id="yesNo" style="display:none;">
+                <button onclick="yes()">Yes</button>
+                <button onclick="no()">No</button>
+            </div>
         </div>
     </div>
     <div class="main">

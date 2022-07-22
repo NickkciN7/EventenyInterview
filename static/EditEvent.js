@@ -76,6 +76,7 @@ function zip() {
 
 
 UPDATE_EVENT = 1;
+DELETE_EVENT = 1;
 RETRY = 0;
 //Set to ADD_EVENT if successfully added event
 //Set to RETRY if user did not input all data or the insert query was unsuccessful
@@ -113,7 +114,6 @@ function update() {
     // console.log(empty);
 
     modal = document.getElementById("modal");
-    modal.style.display = "block";
     modalText = document.getElementById("modalText");
     // if (empty.length = 0) {}
     if (empty.length == 0) {
@@ -145,16 +145,19 @@ function update() {
             body: eventInfo,
             'Content-Type': 'multipart/form-data'
         }).then(response => response.json()).then(data => {
+
             if (data == "Success") {
                 console.log("good");
                 // alert("Successfully added event.");
                 modalText.innerHTML = "Successfully updated event. Click Ok to see your events.";
+                modal.style.display = "block";
                 OK_TYPE = UPDATE_EVENT;
             } else {
                 // alert("Failure to add event.")
                 // alert(data);
                 console.log("bad");
                 modalText.innerHTML = data;
+                modal.style.display = "block";
                 OK_TYPE = RETRY;
             }
         });
@@ -171,6 +174,7 @@ function update() {
         // console.log(emptyString);
         // alert("Please provide input for the following: \n" + emptyString);
         modalText.innerHTML = "Please provide input for the following:<br>" + emptyString;
+        modal.style.display = "block";
         OK_TYPE = RETRY;
     }
 }
@@ -180,7 +184,8 @@ function isEmpty(str) {
 }
 
 function ok() {
-    if (OK_TYPE === UPDATE_EVENT) {
+    //delete and update both = 1 but this looks better
+    if (OK_TYPE === UPDATE_EVENT | OK_TYPE === DELETE_EVENT) {
         window.location.href = "MyEvents.php";
     } else {
         modal = document.getElementById("modal");
@@ -190,9 +195,53 @@ function ok() {
 //delete from database
 function remove() {
     // make modal say something like "are you sure?" then finally delete if they click yes
+    modal = document.getElementById("modal");
+    okButton = document.getElementById("ok");
+    okButton.style.display = "none";
+    yesNoDiv = document.getElementById("yesNo");
+    yesNoDiv.style.display = "block";
+    modalText = document.getElementById("modalText");
+    modalText.innerHTML = "Are you sure you want to delete this event?";
+    modal.style.display = "block";
 }
 
+function yes() {
+    const eventInfo = new FormData();
+    eventInfo.set('eventID', EVENT_ID);
 
+    fetch('delete.php', {
+        method: 'POST',
+        body: eventInfo,
+        'Content-Type': 'multipart/form-data'
+    }).then(response => response.json()).then(data => {
+        okButton = document.getElementById("ok");
+        okButton.style.display = "inline-block";
+        yesNoDiv = document.getElementById("yesNo");
+        yesNoDiv.style.display = "none";
+
+        if (data == "Success") {
+            console.log("good");
+            // alert("Successfully added event.");      
+            modalText.innerHTML = "Successfully deleted event. Click Ok to see your events.";
+            OK_TYPE = DELETE_EVENT;
+        } else {
+            // alert("Failure to add event.")       
+            // alert(data);     
+            console.log("bad");
+            modalText.innerHTML = data;
+            OK_TYPE = RETRY;
+        }
+    });
+}
+
+function no() {
+    modal = document.getElementById("modal");
+    okButton = document.getElementById("ok");
+    okButton.style.display = "inline-block";
+    yesNoDiv = document.getElementById("yesNo");
+    yesNoDiv.style.display = "none";
+    modal.style.display = "none";
+}
 function picInfo() {
     alert('Leaving Picture as "No file chosen" will keep the picture currently associated with this event.')
 }
