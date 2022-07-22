@@ -8,6 +8,9 @@
 </head>
 
 <body>
+    <?php
+        echo '<div id="eventID" style="display:none;">'.$_POST['eventID'].'</div>';
+    ?>
     <div id="modal" class="modal">
         <div class="modalMessage">
             <p id="modalText"></p>
@@ -26,11 +29,10 @@
 
             <tr>
                 <td class="tdleft">Picture:</td>
-                <!-- <td class="tdright"><input type="file" id="pic" style="width:300px"><span class="info" onclick="picInfo()">&#9432;</span></td> -->
                 <td>
                     <div class="pictureEdit">
                         <div class="picInp">
-                            <input type="file" id="pic" >
+                            <input type="file" id="pic">
                         </div>
                         <div class="picError">
                             <span class="info" onclick="picInfo()">&#9432;</span>
@@ -59,7 +61,6 @@
             </tr>
             <tr>
                 <td class="tdleft">Zip Code:</td>
-                <!-- <td style="width: 300px;"> -->
                 <td>
                     <div class="zip">
                         <div class="zipInp">
@@ -89,12 +90,9 @@
                 <td class="tdright"><textarea id="description" rows="4" cols="25"></textarea></td>
             </tr>
         </table>
-        <!-- Description: <br><textarea id="description" rows="4" cols="30"></textarea> -->
         <br><br>
         <button onclick="update();">Update</button>
     </div>
-    <!-- <div style="width: 100px; height: 100px; background-color: green;"></div> -->
-
 
     <script type="text/javascript" src="static/EditEvent.js"></script>
 </body>

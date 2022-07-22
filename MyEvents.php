@@ -1,11 +1,5 @@
 <?php 
     require 'connectDB.php';
-    // $Query = mysqli_query($con, " SELECT * FROM events ");
-    // if ($Query->num_rows > 0) {
-    //     while($row = $Query->fetch_assoc()) { 
-    //         echo $row["event_id"].' '.$row["name"].' '.$row["location"].' '.$row["start_time"].' '.$row["end_time"].' '.$row["description"]; 
-    //     }
-    // }
 ?>
 
 <!DOCTYPE html>
@@ -19,9 +13,7 @@
 <body>
     <h1>My Events</h1>
     <button onclick="location.href = 'AddEvent.html';">Add Event</button>
-    <!-- <button onclick="AddEvent()">Add Event</button> -->
     <br><br>
-    <!-- <script type="text/javascript" src="static/AddEvent.js"></script> -->
     <?php      
         $eventQuery = mysqli_query($con, "SELECT * FROM events");
         if ($eventQuery->num_rows > 0) {
@@ -73,29 +65,15 @@
                         From: '.$start.'<br>
                         To: '.$end.'<br>
                     </div><br>
-                    <button onclick="location.href = \'EditEvent.html\';">Edit</button>
+                    <form action="EditEvent.php" method="POST">
+                        <input type="hidden" name="eventID" value="'.$eventID.'">
+                        <input type="submit" value="Edit">
+                    </form>
                 </div>';
             }
         }
-        // <div class="event">
-        //     <img src="pictures/27.png" alt="Event Picture" width="350" height="250">
-        //     <h2>Japanese Festival</h2>
-        //     <div class="eventInfo" style="height:75px;">
-        //         Come enjoy Japanese culture! It will be awesome
-        //     </div>
-        //     <br>
-        //     <div class="eventInfo">
-        //         123 Japanese St, San Francisco,<br>California 30084
-        //     </div>
-        //     <br>
-        //     <div class="eventInfo">
-        //         From: Date<br>
-        //         To: Date<br>
-        //     </div>
-        //     <button>Edit</button>
-        // </div>
-
     ?>
+    
 </body>
 
 

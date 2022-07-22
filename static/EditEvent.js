@@ -1,7 +1,8 @@
-EVENT_ID = 24;
+EVENT_ID = 0;
 
 window.onload = (event) => {
-
+    // console.log(document.getElementById("eventID").innerHTML);
+    EVENT_ID = document.getElementById("eventID").innerHTML;
     // So I didn't have to manually make an option for every state in the select tag. copied this array from https://usastatescode.com/state-array-json
     stateselect = document.getElementById('stateSelect');
     stateArray = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
