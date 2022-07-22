@@ -1,4 +1,4 @@
-# Project for the Eventeny Interview.
+# Project for the Eventeny Interview
 <br>
 <br>
 
