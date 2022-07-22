@@ -8,9 +8,12 @@
 </head>
 
 <body>
+    <a href="MyEvents.php" style="position: absolute;right:10px;top:0" >Cancel</a>
+    
     <?php
         echo '<div id="eventID" style="display:none;">'.$_POST['eventID'].'</div>';
     ?>
+
     <div id="modal" class="modal">
         <div class="modalMessage">
             <p id="modalText"></p>

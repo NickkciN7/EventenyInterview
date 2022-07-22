@@ -1,8 +1,24 @@
 body {
     text-align: center;
     background-color: #d4ebf2;
-    margin-left: 5%;
-    margin-right: 5%;
+    /* margin-left: 5%;
+    margin-right: 5%; */
+    font-family: Calibri;
+}
+
+button,
+input[type="submit"] {
+    font-family: Calibri;
+    border-radius: 10px;
+    width: 80px;
+}
+
+button:hover,
+button:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    cursor: pointer;
+    background-color: #8d8d8d;
 }
 
 .main {
@@ -138,6 +154,7 @@ span {
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .eventInfo {
@@ -153,6 +170,15 @@ span {
     /* Safari and Chrome */
 }
 
+.eventContainer {
+    display: inline-block;
+    width: 1575px;
+    text-align: start;
+    padding: 10px;
+}
 
+img {
+    border-radius: 10px;
+}
 
 /* End MyEvents Specific */

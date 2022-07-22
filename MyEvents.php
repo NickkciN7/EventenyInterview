@@ -12,9 +12,10 @@
 
 <body>
     <h1>My Events</h1>
-    <button onclick="location.href = 'AddEvent.html';">Add Event</button>
+    <button onclick="location.href = 'AddEvent.html';" style="width:125px">Add Event</button>
     <br><br>
-    <?php      
+    <div class="eventContainer">
+    <?php
         $eventQuery = mysqli_query($con, "SELECT * FROM events");
         if ($eventQuery->num_rows > 0) {
             while($cols = $eventQuery->fetch_assoc()) { 
@@ -73,7 +74,7 @@
             }
         }
     ?>
-    
+    </div>
 </body>
 
 
