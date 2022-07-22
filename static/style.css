@@ -58,7 +58,7 @@ input[type="submit"]:focus {
     display: none;
     position: fixed;
     z-index: 100;
-    padding-top: 20%;
+    padding-top: 15%;
     left: 0;
     top: 0;
     width: 100%;

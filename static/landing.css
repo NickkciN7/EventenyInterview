@@ -1,0 +1,33 @@
+body {
+    text-align: center;
+    background-color: #d4ebf2;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-family: Calibri;
+    font-size: large;
+}
+
+button,
+input[type="submit"] {
+    font-family: Calibri;
+    border-radius: 10px;
+    width: 80px;
+}
+
+button:hover,
+button:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    cursor: pointer;
+    background-color: #8d8d8d;
+}
+
+.main {
+    background-color: #DBDCDE;
+    width: 600px;
+    margin: auto;
+    border-radius: 25px;
+    padding: 10px;
+    /* overflow: hidden; */
+    box-shadow: 0 0 10px 5px black;
+}
